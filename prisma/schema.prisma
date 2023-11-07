@@ -1,0 +1,114 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String   @id @default(uuid())
+  name         String
+  surname      String
+  phone_number String?  @unique
+  email        String   @unique
+  password     String
+  role         String   @default("user")
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+
+  profile   Profile? @relation(fields: [profileId], references: [id])
+  profileId String?
+
+  social   Social? @relation(fields: [socialId], references: [id])
+  socialId String?
+
+  avatar   Avatar?   @relation(fields: [avatarId], references: [id])
+  avatarId String?
+  comment  Comment[]
+  posts    Post[]
+}
+
+model Profile {
+  id        String  @id @default(uuid())
+  username  String?
+  born_date String?
+  about     String?
+  country   String?
+  city      String?
+  jop       String?
+  education String?
+  user      User[]
+}
+
+model Social {
+  id        String  @id @default(uuid())
+  facebook  String?
+  instagram String?
+  twitter   String?
+  linkedin  String?
+  website   String?
+  user      User[]
+}
+
+model Avatar {
+  id   String  @id @default(uuid())
+  url  String?
+  alt  String?
+  user User[]
+}
+
+model Category {
+  id        String    @id @default(uuid())
+  title     String
+  slug      String?
+  createdAt DateTime?
+  post      Post[]
+}
+
+model Keywords {
+  id    String  @id @default(uuid())
+  title String
+  slug  String?
+  post  Post[]
+}
+
+model Post {
+  id          String    @id @default(uuid())
+  title       String
+  content     String
+  slug        String?
+  description String?
+  isActive    Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @default(now())
+  category    Category? @relation(fields: [categoryId], references: [id])
+  categoryId  String?
+  keywords    Keywords? @relation(fields: [keywordsId], references: [id])
+  keywordsId  String?
+  image       Image?    @relation(fields: [imageId], references: [id])
+  imageId     String?
+  user        User      @relation(fields: [userId], references: [id])
+  userId      String
+  comment     Comment[]
+}
+
+model Image {
+  id   String @id @default(uuid())
+  url  String
+  post Post[]
+}
+
+model Comment {
+  id        String   @id @default(uuid())
+  message   String
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String
+  createdAt DateTime @default(now())
+  post      Post?    @relation(fields: [postId], references: [id])
+  postId    String?
+}

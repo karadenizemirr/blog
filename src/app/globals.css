@@ -2,26 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+
+@font-face {
+    font-family: 'poppins-regular';
+    src: url('../style/fonts/Poppins/Poppins-Regular.ttf');
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+@font-face {
+    font-family: 'poppins-bold';
+    src: url('../style/fonts/Poppins/Poppins-Bold.ttf');
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@font-face {
+    font-family: 'poppins-extrabold';
+    src: url('../style/fonts/Poppins/Poppins-ExtraBold.ttf');
+}
+
+@font-face {
+    font-family: 'poppins-medium';
+    src: url('../style/fonts/Poppins/Poppins-Medium.ttf');
+}
+
+
+@layer components {
+    .btn-primary {
+        @apply bg-dark text-white p-2 rounded-full px-5 hover:bg-gray-400 duration-200 text-sm
+    }
+    .form-element {
+        @apply border w-full rounded-full p-2
+    }
+}
+
+.important-black {
+    color:black !important
 }
