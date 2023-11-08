@@ -45,7 +45,7 @@ export default function PostListContainer({ data }: { data?: any }) {
             </div>
             <div className="table w-full mt-10">
                 <TableComponent props={table} data={data}>
-                    <div className="menu absolute bg-white z-50 rounded-lg shadow-lg p-4" >
+                    <div className="menu absolute bg-white z-50 rounded-lg shadow-lg p-4 right-3.5" >
                         <ul className="flex flex-col gap-6" >
                             <li className="p-2 hover:bg-gray-300 rounded-lg duration-200">
                                 <Link href={`/user/post/update?id=${id}`}  >

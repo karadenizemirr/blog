@@ -43,7 +43,7 @@ export default async function UpdatePostApi(req:NextApiRequest, res:NextApiRespo
                 },
                 category:{
                     update:{
-                        title: data.title
+                        id: data.category?.id
                     }
                 },
                 image:{

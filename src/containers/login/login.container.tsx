@@ -7,7 +7,7 @@ import * as Yup from 'yup'
 
 export default function LoginContainer(){
     return (
-        <div className="w-full min-h-[60vh] mx-auto flex flex-1 items-center justify-center" >
+        <div className="w-full min-h-[70vh] mx-auto flex flex-1 items-center justify-center" >
             <div className="loginContainer border p-5">
                 <div className="title text-center">
                     <h1 className="text-2xl" >
