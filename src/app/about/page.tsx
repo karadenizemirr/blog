@@ -18,7 +18,7 @@ export default function AboutPage(){
                     </p>
                     <ul className="flex flex-col gap-5">
                         <li>
-                            <span className="font-bold">Ücretsiz Üyelik:</span>BlogPaylaş.com'a katılmak tamamen ücretsizdir. Hemen bir hesap oluşturun ve yazmaya başlayın.
+                            <span className="font-bold">Ücretsiz Üyelik:</span>BlogPaylaş.com&lsquo;a katılmak tamamen ücretsizdir. Hemen bir hesap oluşturun ve yazmaya başlayın.
                         </li>
                         <li>
                             <span className="font-bold">Kullanıcı Dostu Arayüz:</span>Blog yazma işlemini kolaylaştıran, sezgisel bir arayüzle karşılaşacaksınız.
