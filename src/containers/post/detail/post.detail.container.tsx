@@ -35,7 +35,7 @@ export default function PostDetailContainer({ post }: { post: any }) {
                     <div className="desc">
                         <ul>
                             <li className="font-medium text-lg">
-                                Emirhan Karadeniz <Link href={`/user/${post?.user?.id}`} className="text-primary hover:text-gray-400 duration-200 text-sm ml-3" >Takip Et</Link>
+                                {post?.user?.name} {post?.user?.surname} <Link href={`/user/${post?.user?.id}`} className="text-primary hover:text-gray-400 duration-200 text-sm ml-3" >Takip Et</Link>
                             </li>
                             <li className="text-sm mt-2 line-clamp-3" >
                                 {
