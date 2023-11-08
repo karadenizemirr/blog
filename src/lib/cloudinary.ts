@@ -11,8 +11,6 @@ const cloudinaryUploadSingle = async (file:any) => {
             })
             
             const res = await upload_res.json()
-
-            console.log(res)
             return res?.url
 
         }catch(err){
