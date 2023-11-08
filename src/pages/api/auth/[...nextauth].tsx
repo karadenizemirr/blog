@@ -44,7 +44,7 @@ export const authOptions = {
             session.jwt = token.jwt
             session.user.id = token.id,
             session.user.role = token.role
-            session.user.avatar = token.avatar
+            session.user.avatar = token.avatar ||"https://res.cloudinary.com/dssep9ze1/image/upload/f_auto,q_auto/v1/brkshn/zobijxchgxvxpafuijoj"
             return Promise.resolve(session)
         },
         async jwt({ token, user }: { token: any, user: any }) {
@@ -54,7 +54,7 @@ export const authOptions = {
                 token.name = user.name,
                 token.surname = user.surname
                 token.isActive = user.isActive
-                token.avatar = user?.avatar?.url
+                token.avatar = user?.avatar?.url ||"https://res.cloudinary.com/dssep9ze1/image/upload/f_auto,q_auto/v1/brkshn/zobijxchgxvxpafuijoj"
             }
 
             return Promise.resolve(token)
