@@ -1,4 +1,7 @@
 import UserListContainer from "@/containers/profile/user.list.container";
+import { authOptions } from "@/pages/api/auth/[...nextauth]";
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
 import React from "react";
 
 
@@ -18,6 +21,12 @@ const getUserList = async () => {
 
 export default async function UserListPage(){
     const users = await getUserList()
+    const {user} = await getServerSession(authOptions)
+
+    if (user?.role !== 'editor' && user?.role !== 'admin'){
+        redirect('/')
+    }
+
     return (
         <div>
             <UserListContainer users={users} />

@@ -96,10 +96,12 @@ export default function NavbarComponent({ user, posts }: { user?: any, posts?: a
                                 </Link>
                             </li>
                             <li>
-                                Hakkımızda
+                                <Link href="/about" >Hakkımızda</Link>
                             </li>
                             <li>
+                                <Link href="/contact" >
                                 İletişim
+                                </Link>
                             </li>
                         </ul>
                     </div>

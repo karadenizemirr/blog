@@ -7,9 +7,10 @@ import React from "react";
 
 export default async function CategoryPage(){
     const categories = await fetchGetAllCategory()
-    const user = await getServerSession(authOptions)
+    const {user} = await getServerSession(authOptions)
 
-    if (user?.role !== 'admin' || user?.role !== 'editor'){
+
+    if (user?.role !== 'editor' && user?.role !== 'admin'){
         redirect('/')
     }
 

@@ -19,7 +19,7 @@ export default async function AdminGetAllPostPage(){
     const posts = await fetchGetAllPosts()
     const {user} = await getServerSession(authOptions)
 
-    if (user?.role !== 'admin' || user?.role !== 'editor'){
+    if (user?.role !== 'editor' && user?.role !== 'admin'){
         redirect('/')
     }
     return (
