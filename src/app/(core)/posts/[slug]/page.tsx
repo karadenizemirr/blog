@@ -3,7 +3,7 @@ import React from "react";
 
 const getPostSlug = async (slug:string) => {
     try{
-        const res = await fetch(process.env.NEXT_PUBLIC_API_URL + '/post/get?action=get&slug=' + slug, {cache:'no-cache'})
+        const res = await fetch(process.env.NEXT_PUBLIC_API_URL + '/post/get?action=get&slug=' + slug)
         const {ok,data} = await res.json()
 
         if (ok) return data
