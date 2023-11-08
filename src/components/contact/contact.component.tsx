@@ -9,7 +9,7 @@ export default function ContactComponent(){
     return (
         <div className="min-h-[70vh] flex flex-1 items-center justify-center" >
             <Formik initialValues={{}} onSubmit={() => {}} >
-                <Form className="w-1/3" >
+                <Form className="w-full lg:w-1/3 p-5" >
                     <div className="title text-center mb-5">
                         <h1 className="text-2xl mt-5" >
                             Bize Ulaşın

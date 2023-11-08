@@ -1,7 +1,6 @@
 import { faAdd, faBars, faClose, faPenFancy, faRegistered, faSign, faSignIn, faSignOut, faUser } from "@fortawesome/free-solid-svg-icons";
-import { faPenToSquare } from "@fortawesome/free-solid-svg-icons/faPenToSquare";
-import { faUserAstronaut } from "@fortawesome/free-solid-svg-icons/faUserAstronaut";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -17,11 +16,11 @@ export default function MobileNavbarComponent({ user }: { user: any }) {
         setDropdown(!dropdown)
     }
     return (
-        <div>
+        <div onMouseLeave={handleClickDropdown} >
             <div className="grid grid-cols-12 mt-5 items-center px-5">
                 <div className="logo col-span-6">
-                    <Link href="/" className="text-2xl" >
-                        brkbcrk
+                    <Link href="/" >
+                        <Image src="/images/logo.png" width={120} height={120} alt="logo" />
                     </Link>
                 </div>
                 <div className="toggleButton col-span-6 flex flex-1 justify-end gap-5 items-center">
@@ -63,7 +62,7 @@ export default function MobileNavbarComponent({ user }: { user: any }) {
             ) : dropdown && user?.role === 'admin' ? (
                 <></>
             ) : dropdown ? (
-                <div className="mobileLoginMenu absolute right-5 bg-darkLight text-light p-3 rounded-lg" onMouseLeave={handleClickDropdown}>
+                <div className="mobileLoginMenu absolute right-5 bg-darkLight text-light p-3 rounded-lg">
                     <ul className="flex flex-col gap-5 items-start justify-center" >
                         <li className="hover:bg-primary p-2 rounded-lg duration-200" onClick={handleClickDropdown} >
                             <Link href="/login">
@@ -90,17 +89,17 @@ export default function MobileNavbarComponent({ user }: { user: any }) {
                             <div className="menu">
                                 <ul className="text-center flex flex-col gap-5">
                                     <li>
-                                        <Link href="/" className="text-3xl" >
+                                        <Link href="/" className="text-3xl" onClick={handleClickToggleMenu} >
                                             Anasayfa
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link href="/" className="text-3xl" >
+                                        <Link href="/about" className="text-3xl" onClick={handleClickToggleMenu} >
                                             Hakkımızda
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link href="/" className="text-3xl" >
+                                        <Link href="/contact" className="text-3xl" onClick={handleClickToggleMenu} >
                                             İletişim
                                         </Link>
                                     </li>

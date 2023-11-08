@@ -14,7 +14,7 @@ import Swal from "sweetalert2";
 export default function PostDetailContainer({ post }: { post: any }) {
     return (
         <div className="container mx-auto w-full mt-10 min-h-[60vh] flex flex-1 justify-center" >
-            <div className="content px-4 lg:px-0 lg:w-1/2">
+            <div className="content px-4 lg:px-0 ">
                 <div className="category text-center mb-2 text-sm">
                     <span className="text-primary" >
                         {post?.category?.title}
@@ -35,7 +35,7 @@ export default function PostDetailContainer({ post }: { post: any }) {
                     <div className="desc">
                         <ul>
                             <li className="font-medium text-lg">
-                                {post?.user?.name} {post?.user?.surname} <Link href={`/user/${post?.user?.id}`} className="text-primary hover:text-gray-400 duration-200 text-sm ml-3" >Takip Et</Link>
+                                <Link href={`/user/${post?.user?.id}`} >{post?.user?.name} {post?.user?.surname}</Link> <Link href={`/user/${post?.user?.id}`} className="text-primary hover:text-gray-400 duration-200 text-sm ml-3" >Takip Et</Link>
                             </li>
                             <li className="text-sm mt-2 line-clamp-3" >
                                 {
@@ -45,8 +45,8 @@ export default function PostDetailContainer({ post }: { post: any }) {
                         </ul>
                     </div>
                 </div>
-                <div className="share border-b p-2 flex justify-end">
-                    <div className="readTime text-sm text-gray-500">
+                <div className="share border-b p-2 flex justify-end flex-col lg:flex-row">
+                    <div className="readTime text-sm text-gray-500 text-center mb-2 lg:mb-0">
                         <span>
                             {
                                 calculateReadingTime(post?.content)

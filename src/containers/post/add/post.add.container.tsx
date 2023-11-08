@@ -7,6 +7,7 @@ import React, { useState } from "react";
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.bubble.css';
 import Swal from "sweetalert2";
+import * as Yup from 'yup'
 
 export default function PostAddContainer({ category, data }: { category: any, data?: any }) {
 
@@ -124,6 +125,8 @@ export default function PostAddContainer({ category, data }: { category: any, da
                                 setSpinner(false)
                             }
 
+                            resetForm()
+
                         }} >
                         <Form>
                             <div className="row">
@@ -139,9 +142,9 @@ export default function PostAddContainer({ category, data }: { category: any, da
                                 />
                             </div>
                             <div className="row mt-5 flex flex-col lg:flex-1 lg:flex-row gap-5">
-                                <Field name="title" placeholder="Başlık*" className="form-element" autoComplete="off" />
+                                <Field name="title" placeholder="Başlık*" className="form-element" autoComplete="off" required />
                                 <Field name="keywords" placeholder="Anahtar Kelimeler" className="form-element" autoComplete="off" />
-                                <Field name="category" component="select" className="form-element" placeholder="Kategori Seçin" defaultValue="null" >
+                                <Field name="category" component="select" className="form-element" placeholder="Kategori Seçin" defaultValue="null" required>
                                     <option value="null">Kategori Seçin*</option>
                                     {
                                         category.map((item: any, index: number) => (
@@ -157,7 +160,7 @@ export default function PostAddContainer({ category, data }: { category: any, da
                                     {({ field, form }: { field: any, form: any }) => (
                                         <label htmlFor="file" className="form-element cursor-pointer hover:bg-gray-300 duration-100 flex justify-between">
                                             Kapak Görseli
-                                            <input type="file" id="file" className="sr-only" onChange={(event: any) => {
+                                            <input type="file" id="file" className="sr-only" required onChange={(event: any) => {
                                                 const file = event.currentTarget.files[0]
                                                 setImage(file)
 

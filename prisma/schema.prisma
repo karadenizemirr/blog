@@ -79,7 +79,7 @@ model Keywords {
 
 model Post {
   id          String    @id @default(uuid())
-  title       String
+  title       String    @unique
   content     String
   slug        String?
   description String?

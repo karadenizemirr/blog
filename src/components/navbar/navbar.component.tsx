@@ -60,7 +60,7 @@ export default function NavbarComponent({ user, posts }: { user?: any, posts?: a
                     </div>
                 </div>
             </div>
-            <div className="border-b hidden lg:block">
+            <div className="border-b hidden lg:hidden xl:block">
                 <div className="container mx-auto py-5 grid grid-cols-12 z-50" >
                     <div className="logo col-span-3 flex items-center gap-5">
                         <Link href="/" >
@@ -242,7 +242,7 @@ export default function NavbarComponent({ user, posts }: { user?: any, posts?: a
                     </div>
                 </div>
             </div>
-            <div className="lg:hidden" >
+            <div className="xl:hidden" >
                 <MobileNavbarComponent user={user} />
             </div>
         </nav>

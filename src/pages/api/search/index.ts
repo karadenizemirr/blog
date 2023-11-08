@@ -23,6 +23,30 @@ export default async function SearchApi(req:NextApiRequest, res:NextApiResponse)
                                 mode: 'insensitive'
                             }
                         }
+                    },
+                    {
+                        user:{
+                            OR:[
+                                {
+                                    name: {
+                                        contains: query as string,
+                                        mode: 'insensitive'
+                                    }
+                                },
+                                {
+                                    surname: {
+                                        contains:query as string,
+                                        mode:'insensitive'
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        content: {
+                            contains: query as string,
+                            mode: 'insensitive'
+                        }
                     }
                 ]
             },
