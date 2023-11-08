@@ -3,7 +3,7 @@ import React from "react";
 
 const getCategoryPost = async (slug:string) => {
     try{
-        const res = await fetch(process.env.NEXT_PUBLIC_API_URL + '/category/get?action=post&slug=' + slug, {method:'GET'})
+        const res = await fetch(process.env.NEXT_PUBLIC_API_URL + '/category/get?action=post&slug=' + slug, {method:'GET', cache: 'no-store'})
 
         const {ok,data} = await res.json()
 

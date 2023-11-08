@@ -5,7 +5,8 @@ import { fetchGetAllCategory } from "../add/page";
 export const fetchGetPost = async (postId:string) => {
     try{
         const res = await fetch(process.env.NEXT_PUBLIC_API_URL +'/post/get?id=' + postId + '&action=userPost', {
-            method: 'GET'
+            method: 'GET',
+            cache: 'no-store'
         })
 
         const {ok,data} = await res.json()

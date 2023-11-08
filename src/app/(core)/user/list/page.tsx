@@ -4,7 +4,7 @@ import React from "react";
 
 const getUserList = async () => {
     try{
-        const res = await fetch(process.env.NEXT_PUBLIC_API_URL + '/user/get?action=all', {method:'GET'})
+        const res = await fetch(process.env.NEXT_PUBLIC_API_URL + '/user/get?action=all', {method:'GET', cache: 'no-store'})
 
         const {ok,data} = await res.json()
 

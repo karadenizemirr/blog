@@ -6,7 +6,7 @@ import React from "react";
 
 const fetchGetAllPosts = async () => {
     try{
-        const res = await fetch(process.env.NEXT_PUBLIC_API_URL + '/post/get?action=all', {method:'GET'})
+        const res = await fetch(process.env.NEXT_PUBLIC_API_URL + '/post/get?action=all', {method:'GET', cache:'no-store'})
         const {data , ok} = await res.json()
         if (ok) return data
         else return []

@@ -4,7 +4,7 @@ import React from "react";
 
 const getSearch = async (query:string) => {
     try{
-        const res = await fetch(process.env.NEXT_PUBLIC_API_URL + '/search?query=' + query, {method:'GET', cache:'default'})
+        const res = await fetch(process.env.NEXT_PUBLIC_API_URL + '/search?query=' + query, {method:'GET', cache:'no-store'})
 
         const {ok, data} = await res.json()
 

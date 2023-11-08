@@ -6,7 +6,7 @@ import { authOptions } from "@/pages/api/auth/[...nextauth]";
 
 const getComments = async () => {
     try{
-        const res = await fetch(process.env.NEXT_PUBLIC_API_URL + '/comment/get?action=all')
+        const res = await fetch(process.env.NEXT_PUBLIC_API_URL + '/comment/get?action=all', {cache: 'no-store'})
 
         const {ok, data} = await res.json()
 

@@ -10,6 +10,7 @@ const fetchUserAllPosts = async (userId: string) => {
     try{
         const res = await fetch(process.env.NEXT_PUBLIC_API_URL + '/post/getUser?id=' + userId, {
             method: 'GET',
+            cache:'no-store'
         })
 
         const {ok, data} = await res.json()

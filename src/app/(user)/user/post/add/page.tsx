@@ -5,6 +5,7 @@ export const fetchGetAllCategory = async () => {
     try{
         const res = await fetch(process.env.NEXT_PUBLIC_API_URL + '/category/getAll', {
             method: 'GET',
+            cache: 'no-store'
         })
 
         const {ok, data} = await res.json()

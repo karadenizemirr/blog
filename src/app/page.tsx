@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export const fetchGetPosts = async () => {
   try {
-    const res = await fetch(process.env.NEXT_PUBLIC_API_URL + '/post/get?action=homePosts', { method: 'GET'})
+    const res = await fetch(process.env.NEXT_PUBLIC_API_URL + '/post/get?action=homePosts', { method: 'GET', cache:'no-store'})
 
     const { ok, data } = await res.json()
 
