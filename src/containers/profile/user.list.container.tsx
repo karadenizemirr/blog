@@ -32,7 +32,7 @@ export default function UserListContainer({ users }: { users: any }) {
 
     ]
     return (
-        <div className="container mx-auto min-h-[65vh] mt-10" >
+        <div className="container mx-auto min-h-[70vh] mt-10" >
             <div className="title text-center">
                 <h1 className="text-2xl" >
                     Tüm Kullanıcılar

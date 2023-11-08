@@ -9,7 +9,7 @@ import { randomInt } from "crypto";
 export default function HomeContainer({ posts, categories }: { posts: any, categories?: any }) {
     const [limit, setLimit] = React.useState<number>(8)
     const [button, setButton] = React.useState<boolean>(false)
-    const slice = posts.slice(0, limit)
+    const slice = posts?.slice(0, limit)
 
     const [randomData, setRandomData] = React.useState<any>()
     
@@ -43,7 +43,7 @@ export default function HomeContainer({ posts, categories }: { posts: any, categ
                 </div>
                 <div className='grid grid-cols-12 w-full min-h-[60vh] gap-5 items-start'>
                     {
-                        slice.map((item: any, index: number) => (
+                        slice?.map((item: any, index: number) => (
                             <CardComponent key={index} item={item} />
                         ))
                     }

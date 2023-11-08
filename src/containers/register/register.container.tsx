@@ -7,7 +7,7 @@ import * as Yup from 'yup';
 
 export default function RegisterContainer() {
     return (
-        <div className="min-h-[60vh] w-full container mx-auto flex flex-1 items-center justify-center" >
+        <div className="min-h-[70vh] w-full container mx-auto flex flex-1 items-center justify-center" >
             <div className="registerContainer border p-5">
                 <div className="title text-center">
                     <h1 className="text-2xl" >
