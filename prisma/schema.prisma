@@ -95,6 +95,10 @@ model Post {
   user        User      @relation(fields: [userId], references: [id])
   userId      String
   comment     Comment[]
+  like        Like?     @relation(fields: [likeId], references: [id])
+  likeId      String?
+  view        View?     @relation(fields: [viewId], references: [id])
+  viewId      String?
 }
 
 model Image {
@@ -111,4 +115,16 @@ model Comment {
   createdAt DateTime @default(now())
   post      Post?    @relation(fields: [postId], references: [id])
   postId    String?
+}
+
+model Like {
+  id    String @id @default(uuid())
+  count Int
+  post  Post[]
+}
+
+model View {
+  id    String @id @default(uuid())
+  count Int
+  post  Post[]
 }

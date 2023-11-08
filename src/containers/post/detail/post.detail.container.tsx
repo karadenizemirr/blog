@@ -4,10 +4,11 @@ import ShareComponent from "@/components/share/share.component";
 import { calculateReadingTime } from "@/lib/calculateReadingTime";
 import { keywordsParser } from "@/lib/parser";
 import { faFacebookF, faInstagram, faLinkedinIn, faXTwitter } from "@fortawesome/free-brands-svg-icons";
-import { faEarth } from "@fortawesome/free-solid-svg-icons";
+import { faEarth, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import React from "react";
+import Swal from "sweetalert2";
 
 
 export default function PostDetailContainer({ post }: { post: any }) {
@@ -20,9 +21,12 @@ export default function PostDetailContainer({ post }: { post: any }) {
                     </span>
                 </div>
                 <div className="title text-center">
-                    <h1 className="text-3xl font-medium" >
+                    <h1 className="text-3xl font-medium mb-2" >
                         {post?.title}
                     </h1>
+                    <span className="text-sm text-gray-400" >
+                        Toplam Görüntülenme: {post?.view?.count||0}
+                    </span>
                 </div>
                 <div className="author border-t border-b py-5 mt-5 flex flex-1 items-center gap-5">
                     <div className="img">
@@ -50,6 +54,31 @@ export default function PostDetailContainer({ post }: { post: any }) {
                         </span>
                     </div>
                     <ul className="flex flex-1 gap-4 justify-end" >
+                        <li className="border-r border-black px-3">
+                            <span className="text-sm mr-2" >
+                                {post?.like?.count||0} Beğeni
+                            </span>
+                            <button className="focus:text-primary" onClick={async () => {
+                                const res = await fetch(process.env.NEXT_PUBLIC_API_URL + '/post/like?postId=' + post?.id, {method:'GET'})
+
+                                const {ok} = await res.json()
+                                if (ok){
+                                    Swal.fire({
+                                        title:'Beğeni',
+                                        text:'Yazı beğenildi.',
+                                        icon: 'success'
+                                    })
+                                }else{
+                                    Swal.fire({
+                                        title:'Beğeni',
+                                        text: 'Yazı beğenilirken bir sorun oluştu.',
+                                        icon: 'error'
+                                    })
+                                }
+                            }}>
+                                <FontAwesomeIcon icon={faHeart} />
+                            </button>
+                        </li>
                         <li>
                             <Link href={post?.user?.social?.facebook || ""} >
                                 <FontAwesomeIcon icon={faFacebookF} />

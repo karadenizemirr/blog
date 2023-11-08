@@ -12,7 +12,9 @@ export default async function GetPostApi(req: NextApiRequest, res: NextApiRespon
                 include: {
                     user: true,
                     image: true,
-                    category: true
+                    category: true,
+                    view: true,
+                    like: true
                 }
             })
             return res.status(200).send({ ok: true, data: posts })
@@ -45,6 +47,16 @@ export default async function GetPostApi(req: NextApiRequest, res: NextApiRespon
                     description: true,
                     content: true,
                     keywords: true,
+                    like:{
+                        select:{
+                            count: true
+                        }
+                    },
+                    view:{
+                        select: {
+                            count: true
+                        }
+                    }
                 }
             })
             return res.status(200).send({ ok: true, data: post })
@@ -96,6 +108,16 @@ export default async function GetPostApi(req: NextApiRequest, res: NextApiRespon
                             surname: true,
                             avatar: true,
                         }
+                    },
+                    like:{
+                        select:{
+                            count: true
+                        }
+                    },
+                    view:{
+                        select: {
+                            count: true
+                        }
                     }
                 },
                 orderBy: {
@@ -144,6 +166,16 @@ export default async function GetPostApi(req: NextApiRequest, res: NextApiRespon
                                     }
                                 }
                             }
+                        }
+                    },
+                    view:{
+                        select:{
+                            count: true
+                        }
+                    },
+                    like:{
+                        select:{
+                            count: true
                         }
                     }
                 }

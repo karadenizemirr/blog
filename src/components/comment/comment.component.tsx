@@ -16,10 +16,11 @@ export default function CommentComponent({ comments, postId }: { comments?: any,
                 </h1>
             </div>
             {
-                comments.map((comment: any, index: number) => (
+                comments?.map((comment: any, index: number) => (
                     <div className="commentList mt-5 mb-5" key={index}>
                         <div className="author flex flex-1 items-center gap-3">
                             <div className="avatar">
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
                                 <img src={comment?.user?.avatar?.url} alt="" style={{ width: '30px', height: '30px' }} className="rounded-full object-cover" />
                             </div>
                             <div className="namesurnam">

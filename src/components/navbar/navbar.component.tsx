@@ -1,6 +1,6 @@
 "use client"
 import { faFacebook, faInstagram, faTwitter, faYoutube } from "@fortawesome/free-brands-svg-icons";
-import { faAdd, faComment, faList, faList12, faPenAlt, faPenToSquare, faSearch, faSignOut, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faAdd, faComment, faList, faList12, faPenAlt, faPenToSquare, faPerson, faSearch, faSignOut, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
@@ -63,20 +63,20 @@ export default function NavbarComponent({ user, posts }: { user?: any, posts?: a
             <div className="border-b hidden lg:block">
                 <div className="container mx-auto py-5 grid grid-cols-12 z-50" >
                     <div className="logo col-span-3 flex items-center gap-5">
-                        {/* <Link href="/" >
-                        <Image src="/images/logo.png" width={70} height={70} alt="logo" />
-                    </Link> */}
+                        <Link href="/" >
+                            <Image src="/images/logo.png" width={120} height={120} alt="logo" />
+                        </Link>
 
-                        <h1 className="text-2xl font-medium tracking-wider" >
+                        {/* <h1 className="text-2xl font-medium tracking-wider" >
                             brkshn
-                        </h1>
+                        </h1> */}
                         <div className="searchabr">
                             <label htmlFor="">
                                 <div className="relative">
-                                    <Formik initialValues={{query:""}} onSubmit={(values:any) => {
+                                    <Formik initialValues={{ query: "" }} onSubmit={(values: any) => {
                                         router.push(`/search/${values.query}`)
                                     }} >
-                                        <Form  className="text-sm">
+                                        <Form className="text-sm">
                                             <Field name="query" placeholder="Ara..." className="border p-1 rounded-full bg-gray-100" autoComplete="off" />
                                             <button className="ml-2" type="submit" >
                                                 <FontAwesomeIcon icon={faSearch} />
@@ -185,7 +185,40 @@ export default function NavbarComponent({ user, posts }: { user?: any, posts?: a
                                                                     </li>
                                                                 </ul></>
                                                         ) : user?.role === 'admin' ? (
-                                                            <></>
+                                                            <>
+                                                                <ul className="flex flex-col gap-5" >
+                                                                <li className="p-2 hover:bg-gray-300 rounded-lg duration-200" >
+                                                                        <Link href="/user/list" >
+                                                                            <FontAwesomeIcon icon={faPerson} className="mr-2" />Kullanıcılar
+                                                                        </Link>
+                                                                    </li>
+                                                                    <li className="p-2 hover:bg-gray-300 rounded-lg duration-200" >
+                                                                        <Link href="/category" >
+                                                                            <FontAwesomeIcon icon={faList12} className="mr-2" />Kategoriler
+                                                                        </Link>
+                                                                    </li>
+                                                                    <li className="p-2 hover:bg-gray-300 rounded-lg duration-200" >
+                                                                        <Link href="/posts" >
+                                                                            <FontAwesomeIcon icon={faPenToSquare} className="mr-2" />Tüm Yazılar
+                                                                        </Link>
+                                                                    </li>
+                                                                    <li className="p-2 hover:bg-gray-300 rounded-lg duration-200">
+                                                                        <Link href="/comments">
+                                                                            <FontAwesomeIcon icon={faComment} className="mr-2" />Yorumlar
+                                                                        </Link>
+                                                                    </li>
+
+                                                                    <li className="p-2 hover:bg-gray-300 rounded-lg duration-200">
+                                                                        <Link href={`/user/profile?id=${user?.id}`}>
+                                                                            <FontAwesomeIcon icon={faUser} className="mr-2" />Profilim
+                                                                        </Link>
+                                                                    </li>
+                                                                    <li className="p-2 hover:bg-gray-300 rounded-lg duration-200">
+                                                                        <button onClick={() => { signOut() }} >
+                                                                            <FontAwesomeIcon icon={faSignOut} className="mr-2" />Çıkış Yap
+                                                                        </button>
+                                                                    </li>
+                                                                </ul></>
                                                         ) : (<></>)
                                                     }
                                                 </div>
@@ -208,7 +241,7 @@ export default function NavbarComponent({ user, posts }: { user?: any, posts?: a
                 </div>
             </div>
             <div className="lg:hidden" >
-            <MobileNavbarComponent user={user} />
+                <MobileNavbarComponent user={user} />
             </div>
         </nav>
     )

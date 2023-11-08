@@ -13,8 +13,22 @@ const getPostSlug = async (slug:string) => {
     }
 }
 
+const getViewer = async (id:string) => {
+    try{
+        const res = await fetch(process.env.NEXT_PUBLIC_API_URL + '/post/view?postId=' + id)
+
+        const {ok} = await res.json()
+        return ok
+
+
+    }catch(err){
+        return false
+    }
+}
+
 export default async function SinglePost({params}:{params: {slug: string}}){
     const post = await getPostSlug(params.slug)
+    const viewer = await getViewer(post[0]?.id)
     return (
         <div>
             <PostDetailContainer post={post[0]} />

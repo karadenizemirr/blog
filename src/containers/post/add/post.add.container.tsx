@@ -145,7 +145,7 @@ export default function PostAddContainer({ category, data }: { category: any, da
                                     <option value="null">Kategori Seçin*</option>
                                     {
                                         category.map((item: any, index: number) => (
-                                            <option value={item.id}>
+                                            <option value={item.id} key={index}>
                                                 {
                                                     item.title
                                                 }

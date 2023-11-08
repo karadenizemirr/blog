@@ -25,6 +25,14 @@ export default function PostListContainer({ data }: { data?: any }) {
             name: 'Durumu',
             selector: 'isActive',
             type: 'boolean'
+        },
+        {
+            name:'Görüntülenme',
+            selector: 'view.count'
+        },
+        {
+            name:'Beğeni',
+            selector:'like.count'
         }
     ]
 

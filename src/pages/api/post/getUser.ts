@@ -22,7 +22,9 @@ export default async function GetUserPostApi(req:NextApiRequest, res:NextApiResp
                     keywords: true,
                     description: true,
                     id: true,
-                    isActive:true
+                    isActive:true,
+                    view: true,
+                    like: true
                 }
             }
         )

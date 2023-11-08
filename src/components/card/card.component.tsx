@@ -1,5 +1,5 @@
 import { dateParser } from "@/lib/parser";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faEye } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import React from "react";
@@ -10,6 +10,7 @@ export default function CardComponent({ item }: { item: any }) {
             <div className="card p-5 shadow-sm rounded-xl">
                 <div className="topbar flex flex-1 justify-between items-center p-3">
                     <div className="avatar">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img src={item?.user?.avatar?.url} alt="" className="rounded-full border border-black object-cover" style={{width:'30px', height:'30px'}} />
                     </div>
                     <div className="author">
@@ -20,6 +21,7 @@ export default function CardComponent({ item }: { item: any }) {
                 </div>
                 <div className="img p-2 rounded-xl">
                     <Link href={`/posts/${item?.slug}`}>
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img src={item?.image?.url || 'https://random.imagecdn.app/500/500'} alt="" className="rounded-xl object-center w-full max-h-48 hover:opacity-90 duration-200" style={{width:'100%', height: '200px'}} />
                     </Link>
                 </div>
@@ -30,6 +32,11 @@ export default function CardComponent({ item }: { item: any }) {
                                 {
                                     dateParser(item?.createdAt)
                                 }
+                            </li>
+                            <li>
+                                <span>
+                                    <FontAwesomeIcon icon={faEye} className="mr-2"/>{item?.view?.count||0}
+                                </span>
                             </li>
                             <li>
                                 <Link href={`/category/${item?.category?.slug}`} className="hover:text-primary duration-200">

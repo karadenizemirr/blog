@@ -49,6 +49,24 @@ export default async function GetUser(req:NextApiRequest, res:NextApiResponse){
             })
 
             return res.status(200).send({ok: true, data:user})
+        }else if (action === 'all'){
+            const users = await prisma.user.findMany({
+                select: {
+                    id: true,
+                    name: true,
+                    surname: true,
+                    avatar: {
+                        select: {
+                            url: true
+                        }
+                    },
+                    isActive:true,
+                    role: true,
+                    posts: true
+                }
+            })
+
+            return res.status(200).send({ok:true, data:users})
         }
     }catch(err){
         return res.status(400).send({ok: false})

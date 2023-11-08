@@ -6,8 +6,8 @@ import React from "react";
 
 export default function FooterComponent(){
     return (
-        <div className="w-full bg-dark  p-5 text-white mt-20" >
-            <div className="content subscribe text-center">
+        <div className="w-full bg-dark  p-6 text-white mt-20" >
+            {/* <div className="content subscribe text-center">
                 <h1 className="text-2xl">
                     Abone Olun
                 </h1>
@@ -26,10 +26,10 @@ export default function FooterComponent(){
                         </Form>
                     </Formik>
                 </div>
-            </div>
-            <div className="footer grid grid-cols-12 mt-10">
-                <div className="col-span-4 text-sm">
-                    <ul className="flex flex-1 gap-5 text-gray-400" >
+            </div> */}
+            <div className="footer grid grid-cols-12 mt-10 items-center">
+                <div className="col-span-12 lg:col-span-4 text-sm">
+                    <ul className="flex flex-1 gap-5 text-gray-400 justify-center lg:justify-start mb-5 lg:mb-0" >
                         <li>
                             Terms of Use
                         </li>
@@ -38,7 +38,7 @@ export default function FooterComponent(){
                         </li>
                     </ul>
                 </div>
-                <div className="col-span-4 flex items-center justify-center">
+                <div className="col-span-12 lg:col-span-4 flex items-center justify-center">
                     <ul className="flex flex-1  items-center justify-center gap-5" >
                         <li>
                             <FontAwesomeIcon icon={faFacebook} width={15} />
@@ -54,7 +54,7 @@ export default function FooterComponent(){
                         </li>
                     </ul>
                 </div>
-                <div className="col-span-4 flex justify-end items-center text-sm text-gray-400">
+                <div className="col-span-12 lg:col-span-4 flex justify-center lg:justify-end items-center text-sm text-gray-400 mt-5 lg:mt-0">
                     Tüm Hakları Saklıdır @2023
                 </div>
             </div>

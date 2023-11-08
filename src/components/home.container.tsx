@@ -72,10 +72,10 @@ export default function HomeContainer({ posts, categories }: { posts: any, categ
                         </h1>
                     </div>
                     <div className="categories text-light container mx-auto flex items-center justify-center flex-1">
-                        <ul className="grid grid-cols-12 gap-10">
+                        <ul className="grid grid-cols-12 lg:gap-10 gap-5">
                             {
                                 categories?.map((category: any, index: number) => (
-                                    <li className="border border-light bg-darkLight p-2 px-5 rounded-full text-sm col-span-4 mb-10 text-center hover:bg-gray-400 duration-200 cursor-pointer" key={index}>
+                                    <li className="border border-light bg-darkLight p-2 px-5 rounded-full text-sm col-span-6 lg:col-span-4 mb-10 text-center hover:bg-gray-400 duration-200 cursor-pointer" key={index}>
                                         <Link href={`/category/${category.slug}`}>
                                             {
                                                 category.title
