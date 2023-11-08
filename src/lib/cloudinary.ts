@@ -5,7 +5,7 @@ const cloudinaryUploadSingle = async (file:any) => {
         formData.append('upload_preset', 'brkshn')
         
         try{
-            const upload_res = await fetch(`https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_500/f_auto/`, {
+            const upload_res = await fetch(`https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload`, {
                 method:'POST',
                 body:formData,
             })
