@@ -1,4 +1,7 @@
 import AdminPostListContainer from "@/containers/post/list/admin.post.list.container";
+import { authOptions } from "@/pages/api/auth/[...nextauth]";
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
 import React from "react";
 
 const fetchGetAllPosts = async () => {
@@ -14,6 +17,11 @@ const fetchGetAllPosts = async () => {
 }
 export default async function AdminGetAllPostPage(){
     const posts = await fetchGetAllPosts()
+    const {user} = await getServerSession(authOptions)
+
+    if (user?.role !== 'admin' || user?.role !== 'editor'){
+        redirect('/')
+    }
     return (
         <div>
             <AdminPostListContainer data={posts} />

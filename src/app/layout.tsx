@@ -8,6 +8,7 @@ import { authOptions } from '@/pages/api/auth/[...nextauth]';
 import StoreProvider from '@/components/provider/store.provider';
 import { fetchGetPosts } from './page';
 
+
 export default async function RootLayout({
   children,
 }: {

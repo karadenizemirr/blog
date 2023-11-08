@@ -11,7 +11,7 @@ export default function CardComponent({ item }: { item: any }) {
                 <div className="topbar flex flex-1 justify-between items-center p-3">
                     <div className="avatar">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={item?.user?.avatar?.url} alt="" className="rounded-full border border-black object-cover" style={{width:'30px', height:'30px'}} />
+                        <img src={item?.user?.avatar?.url ||'https://res.cloudinary.com/dssep9ze1/image/upload/f_auto,q_auto/v1/brkshn/zobijxchgxvxpafuijoj'} alt="" className="rounded-full border border-black object-cover" style={{width:'30px', height:'30px'}} />
                     </div>
                     <div className="author">
                         <Link href={`/user/${item?.user?.id}`} className="text-sm italic text-gray-500 hover:text-primary duration-200">
@@ -22,7 +22,7 @@ export default function CardComponent({ item }: { item: any }) {
                 <div className="img p-2 rounded-xl">
                     <Link href={`/posts/${item?.slug}`}>
                         {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={item?.image?.url || 'https://random.imagecdn.app/500/500'} alt="" className="rounded-xl object-center w-full max-h-48 hover:opacity-90 duration-200" style={{width:'100%', height: '200px'}} />
+                        <img src={item?.image?.url || 'https://res.cloudinary.com/dssep9ze1/image/upload/f_auto,q_auto/v1/brkshn/zobijxchgxvxpafuijoj'} alt="" className="rounded-xl object-cover w-full max-h-48 hover:opacity-90 duration-200" style={{width:'100%', height: '200px'}} />
                     </Link>
                 </div>
                 <div className="footer px-3">
