@@ -62,7 +62,7 @@ export default function NavbarComponent({ user, posts }: { user?: any, posts?: a
             </div>
             <div className="border-b hidden lg:hidden xl:block">
                 <div className="container mx-auto py-5 grid grid-cols-12 z-50" >
-                    <div className="logo col-span-3 flex items-center gap-5">
+                    <div className="logo col-span-4 flex items-center gap-5">
                         <Link href="/" >
                             <Image src="/images/logo.png" width={120} height={120} alt="logo" />
                         </Link>
@@ -88,7 +88,7 @@ export default function NavbarComponent({ user, posts }: { user?: any, posts?: a
 
                         </div>
                     </div>
-                    <div className="col-span-7 flex items-center">
+                    <div className="col-span-6 flex items-center">
                         <ul className="flex flex-1  gap-10 justify-end items-center" >
                             <li>
                                 <Link href="/" >

@@ -20,3 +20,12 @@ export const keywordsParser = (keywords: string) => {
 
   }
 }
+
+export const sliceKeywordParser = (keywords: string) => {
+  const maxLength = 30;
+  if (keywords.length <= maxLength) {
+    return keywords;
+  } else {
+    return keywords.slice(0, maxLength) + "...";
+  }
+};

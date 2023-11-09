@@ -1,5 +1,6 @@
 import { faAdd, faBars, faClose, faPenFancy, faRegistered, faSign, faSignIn, faSignOut, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { signOut } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -52,7 +53,9 @@ export default function MobileNavbarComponent({ user }: { user: any }) {
                                 </Link>
                             </li>
                             <li className="hover:bg-primary p-2 rounded-lg duration-200" onClick={handleClickDropdown}>
-                                <FontAwesomeIcon icon={faSignOut} /> Çıkış Yap
+                                <button onClick={() => {signOut()}} >
+                                    <FontAwesomeIcon icon={faSignOut} /> Çıkış Yap
+                                </button>
                             </li>
                         </ul>
                     </div>

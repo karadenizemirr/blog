@@ -1,8 +1,9 @@
-import { dateParser } from "@/lib/parser";
+import { dateParser, sliceKeywordParser } from "@/lib/parser";
 import { faArrowRight, faEye } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import React from "react";
+import parse from 'html-react-parser';
 
 export default function CardComponent({ item }: { item: any }) {
     return (
@@ -11,7 +12,7 @@ export default function CardComponent({ item }: { item: any }) {
                 <div className="topbar flex flex-1 justify-between items-center p-3">
                     <div className="avatar">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={item?.user?.avatar?.url ||'https://res.cloudinary.com/dssep9ze1/image/upload/f_auto,q_auto/v1/brkshn/zobijxchgxvxpafuijoj'} alt="" className="rounded-full border border-black object-cover" style={{width:'30px', height:'30px'}} />
+                        <img src={item?.user?.avatar?.url || 'https://res.cloudinary.com/dssep9ze1/image/upload/f_auto,q_auto/v1/brkshn/zobijxchgxvxpafuijoj'} alt="" className="rounded-full border border-black object-cover" style={{ width: '30px', height: '30px' }} />
                     </div>
                     <div className="author">
                         <Link href={`/user/${item?.user?.id}`} className="text-sm italic text-gray-500 hover:text-primary duration-200">
@@ -22,7 +23,7 @@ export default function CardComponent({ item }: { item: any }) {
                 <div className="img p-2 rounded-xl">
                     <Link href={`/posts/${item?.slug}`}>
                         {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={item?.image?.url || 'https://res.cloudinary.com/dssep9ze1/image/upload/f_auto,q_auto/v1/brkshn/zobijxchgxvxpafuijoj'} alt="" className="rounded-xl object-cover w-full max-h-48 hover:opacity-90 duration-200" style={{width:'100%', height: '200px'}} />
+                        <img src={item?.image?.url || 'https://res.cloudinary.com/dssep9ze1/image/upload/f_auto,q_auto/v1/brkshn/zobijxchgxvxpafuijoj'} alt="" className="rounded-xl object-cover w-full max-h-48 hover:opacity-90 duration-200" style={{ width: '100%', height: '200px' }} />
                     </Link>
                 </div>
                 <div className="footer px-3">
@@ -35,7 +36,7 @@ export default function CardComponent({ item }: { item: any }) {
                             </li>
                             <li>
                                 <span>
-                                    <FontAwesomeIcon icon={faEye} className="mr-2"/>{item?.view?.count||0}
+                                    <FontAwesomeIcon icon={faEye} className="mr-2" />{item?.view?.count || 0}
                                 </span>
                             </li>
                             <li>
@@ -49,7 +50,7 @@ export default function CardComponent({ item }: { item: any }) {
                         <Link href={`/posts/${item?.slug}`} className="font-medium line-clamp-1 uppercase hover:text-primary duration-200 " >
                             {item?.title}
                         </Link>
-                        <div className="conetnt line-clamp-3 mt-2 text-sm" dangerouslySetInnerHTML={{ __html: item?.content }} style={{ color: 'black' }}></div>
+                        <div className="content mt-2 text-sm" dangerouslySetInnerHTML={{ __html: item?.content.slice(0, 200) + '...' }} style={{ color: 'black' }}></div>
                     </div>
                     <div className="button mt-5 ">
                         <Link href={`/posts/${item?.slug}`} className="font-medium hover:text-gray-400 duration-200">
