@@ -13,7 +13,6 @@ export default function HomeContainer({ posts, categories }: { posts: any, categ
 
     const [randomData, setRandomData] = React.useState<any>()
     
-    
     useEffect(() => {
         if (posts) {
           const shuffledPosts = [...posts];
