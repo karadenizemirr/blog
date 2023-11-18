@@ -35,7 +35,7 @@ export default function MobileNavbarComponent({ user }: { user: any }) {
             </div>
             {dropdown && user?.role === 'user' ? (
                 <>
-                    <div className="mobileLoginMenu absolute right-5 bg-darkLight text-light p-3 rounded-lg z-50" onMouseLeave={handleClickDropdown}>
+                    <div className="mobileLoginMenu absolute right-5 bg-darkLight text-light p-3 rounded-lg z-50"   >
                         <ul className="flex flex-col gap-5 items-start justify-center" >
                             <li className="hover:bg-primary p-2 rounded-lg duration-200" onClick={handleClickDropdown} >
                                 <Link href="/user/post/add">

@@ -134,7 +134,7 @@ export default function PostAddContainer({ category, data }: { category: any, da
                                     theme="bubble"
                                     value={content}
                                     onChange={setContent}
-                                    placeholder="Yazmaya Başla"
+                                    placeholder="Buraya tıklayarak yazmaya başlayın.."
                                     className="font-regular"
                                     modules={{
                                         toolbar: toolbarOptions
