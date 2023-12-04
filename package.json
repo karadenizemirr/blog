@@ -17,6 +17,7 @@
     "@reduxjs/toolkit": "^1.9.7",
     "@tanstack/react-table": "^8.10.7",
     "@types/bcrypt": "^5.0.1",
+    "antd": "^5.11.2",
     "bcrypt": "^5.1.1",
     "formik": "^2.4.5",
     "html-react-parser": "^5.0.6",

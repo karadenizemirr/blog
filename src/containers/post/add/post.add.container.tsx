@@ -135,7 +135,7 @@ export default function PostAddContainer({ category, data }: { category: any, da
                                     value={content}
                                     onChange={setContent}
                                     placeholder="Buraya tıklayarak yazmaya başlayın.."
-                                    className="font-regular"
+                                    className="font-regular border rounded-full"
                                     modules={{
                                         toolbar: toolbarOptions
                                     }}

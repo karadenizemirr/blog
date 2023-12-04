@@ -2,6 +2,7 @@
 import { Field, Form, Formik } from "formik";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
 import * as Yup from 'yup'
 
@@ -31,7 +32,8 @@ export default function LoginContainer(){
                     onSubmit={(values:any) => {
                         signIn('credentials', {
                             mail_address: values.mail_address,
-                            password: values.password
+                            password: values.password,
+                            callbackUrl: '/'
                         })
                     }} >
                         <Form>
