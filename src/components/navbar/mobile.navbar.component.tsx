@@ -1,4 +1,4 @@
-import { faAdd, faBars, faClose, faPenFancy, faRegistered, faSign, faSignIn, faSignOut, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faAdd, faBars, faClose, faComment, faList12, faPenAlt, faPenFancy, faPenSquare, faPerson, faRegistered, faSign, faSignIn, faSignOut, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { signOut } from "next-auth/react";
 import Image from "next/image";
@@ -53,7 +53,7 @@ export default function MobileNavbarComponent({ user }: { user: any }) {
                                 </Link>
                             </li>
                             <li className="hover:bg-primary p-2 rounded-lg duration-200" onClick={handleClickDropdown}>
-                                <button onClick={() => {signOut()}} >
+                                <button onClick={() => { signOut() }} >
                                     <FontAwesomeIcon icon={faSignOut} /> Çıkış Yap
                                 </button>
                             </li>
@@ -61,9 +61,81 @@ export default function MobileNavbarComponent({ user }: { user: any }) {
                     </div>
                 </>
             ) : dropdown && user?.role === 'editor' ? (
-                <></>
+                <>
+                    <ul className="flex flex-col gap-5" >
+                        <li className="p-2 hover:bg-gray-300 rounded-lg duration-200" onClick={handleClickDropdown} >
+                            <Link href="/user/post/add" >
+                                <FontAwesomeIcon icon={faPenSquare} className="mr-2"  />Yazı Ekle
+                            </Link>
+                        </li>
+                        <li className="p-2 hover:bg-gray-300 rounded-lg duration-200" onClick={handleClickDropdown} >
+                            <Link href="/category" >
+                                <FontAwesomeIcon icon={faList12} className="mr-2" />Kategoriler
+                            </Link>
+                        </li>
+                        <li className="p-2 hover:bg-gray-300 rounded-lg duration-200" onClick={handleClickDropdown} >
+                            <Link href="/user/post/list">
+                                <FontAwesomeIcon icon={faPenAlt} className="mr-2" />Yazılarım
+                            </Link>
+                        </li>
+                        <li className="p-2 hover:bg-gray-300 rounded-lg duration-200" onClick={handleClickDropdown} >
+                            <Link href="/posts" >
+                                <FontAwesomeIcon icon={faPenSquare} className="mr-2" />Tüm Yazılar
+                            </Link>
+                        </li>
+                        <li className="p-2 hover:bg-gray-300 rounded-lg duration-200" onClick={handleClickDropdown} >
+                            <Link href="/comments">
+                                <FontAwesomeIcon icon={faComment} className="mr-2" />Yorumlar
+                            </Link>
+                        </li>
+
+                        <li className="p-2 hover:bg-gray-300 rounded-lg duration-200" onClick={handleClickDropdown} >
+                            <Link href={`/user/profile?id=${user?.id}`}>
+                                <FontAwesomeIcon icon={faUser} className="mr-2" />Profilim
+                            </Link>
+                        </li>
+                        <li className="p-2 hover:bg-gray-300 rounded-lg duration-200" onClick={handleClickDropdown} >
+                            <button onClick={() => { signOut() }} >
+                                <FontAwesomeIcon icon={faSignOut} className="mr-2" />Çıkış Yap
+                            </button>
+                        </li>
+                    </ul>
+                </>
             ) : dropdown && user?.role === 'admin' ? (
-                <></>
+                <>
+                    <ul className="flex flex-col gap-5" >
+                        <li className="p-2 hover:bg-gray-300 rounded-lg duration-200" onClick={handleClickDropdown} >
+                            <Link href="/user/list" >
+                                <FontAwesomeIcon icon={faPerson} className="mr-2" />Kullanıcılar
+                            </Link>
+                        </li>
+                        <li className="p-2 hover:bg-gray-300 rounded-lg duration-200" onClick={handleClickDropdown} >
+                            <Link href="/category" >
+                                <FontAwesomeIcon icon={faList12} className="mr-2" />Kategoriler
+                            </Link>
+                        </li>
+                        <li className="p-2 hover:bg-gray-300 rounded-lg duration-200" onClick={handleClickDropdown} >
+                            <Link href="/posts" >
+                                <FontAwesomeIcon icon={faPenSquare} className="mr-2" />Tüm Yazılar
+                            </Link>
+                        </li>
+                        <li className="p-2 hover:bg-gray-300 rounded-lg duration-200" onClick={handleClickDropdown} >
+                            <Link href="/comments">
+                                <FontAwesomeIcon icon={faComment} className="mr-2" />Yorumlar
+                            </Link>
+                        </li>
+
+                        <li className="p-2 hover:bg-gray-300 rounded-lg duration-200" onClick={handleClickDropdown} >
+                            <Link href={`/user/profile?id=${user?.id}`}>
+                                <FontAwesomeIcon icon={faUser} className="mr-2" />Profilim
+                            </Link>
+                        </li>
+                        <li className="p-2 hover:bg-gray-300 rounded-lg duration-200" onClick={handleClickDropdown} >
+                            <button onClick={() => { signOut() }} >
+                                <FontAwesomeIcon icon={faSignOut} className="mr-2" />Çıkış Yap
+                            </button>
+                        </li>
+                    </ul></>
             ) : dropdown ? (
                 <div className="mobileLoginMenu absolute right-5 bg-darkLight text-light p-3 rounded-lg">
                     <ul className="flex flex-col gap-5 items-start justify-center" >
@@ -79,7 +151,8 @@ export default function MobileNavbarComponent({ user }: { user: any }) {
                         </li>
                     </ul>
                 </div>
-            ) : (<></>)}
+            ) : (<></>)
+            }
             {
                 toggle && (
                     <div className="mobileMenu absolute top-0 bg-primary w-full h-screen text-light">
@@ -117,6 +190,6 @@ export default function MobileNavbarComponent({ user }: { user: any }) {
                     </div>
                 )
             }
-        </div>
+        </div >
     )
 }
